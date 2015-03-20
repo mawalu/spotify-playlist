@@ -12,15 +12,14 @@ $(document).ready(function() {
                 spotify.createPlaylist(playlistName, callback);
             },
             function(playlist, callback) {
-                var uris = [];
-                async.each(songs, function(song, callback) {
+                async.map(songs, function(song, callback) {
                     spotify.search(song, function(err, data) {
-                        if (data.tracks.total != 0) uris.push(data.tracks.items[0].uri);
-                        callback();
+                        if (err) return callback(err);
+                        if (data.tracks.total != 0) song = data.tracks.items[0].uri;
+                        callback(null, song);
                     });
-                }, function(err) {
-                    console.log(uris);
-                    callback(err, uris, playlist);
+                }, function(err, songs) {
+                    callback(err, songs, playlist);
                 });
             },
             function(uris, playlist, callback) {
