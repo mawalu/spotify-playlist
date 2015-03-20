@@ -22,9 +22,8 @@ var spotify = {
             }).fail(function() {
                 spotify.authorize();
             });
-        } else {
-            spotify.authorize();
         }
+        callback("No token set");
     },
     authorize: function() {
         location.href = "https://accounts.spotify.com/authorize?client_id=" + spotify.clientId 

@@ -3,11 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>Spotify playlist importer</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <input type="text" id="name" placeholder="Playlist name"><br>
-    <textarea id="songlist" placeholder="All for nothing wasted penguinz"></textarea><br>
-    <button id="generate">Generate playlist</button>
+    <h1>Spotify playlist importer</h1>
+    This service allows you to create a spotify playlist from a list of songs in plain text format.<br>
+    This can be helpfull if you have a tracklist from a song compilation like the ones found on youtube.
+
+    <div id="not-logged-in">
+        <button id='login'>Login using spotify</button>
+    </div>
+    <div id="logged-in">
+        <input type="text" id="name" placeholder="Playlist name"><br>
+        <textarea id="songlist" placeholder="All for nothing wasted penguinz"></textarea><br>
+        <button id="generate">Generate playlist</button>
+    </div>
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="js/async.js"></script>
