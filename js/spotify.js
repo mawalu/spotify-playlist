@@ -1,4 +1,5 @@
 var spotify = {
+    spotify.clientId = "a9c36b0a94ae4f1ca8bc725f936c9e36";
     search: function(query, callback) {
         $.ajax({
             url: "https://api.spotify.com/v1/search",
@@ -24,9 +25,9 @@ var spotify = {
         } else {
             spotify.authorize();
         }
-    },
+    }
     authorize: function() {
-        location.href = "https://accounts.spotify.com/authorize?client_id=a9c36b0a94ae4f1ca8bc725f936c9e36"
+        location.href = "https://accounts.spotify.com/authorize?client_id=" + spotify.clientId + 
                         + "&response_type=token"
                         + "&redirect_uri=" + location.href
                         + "&scope=playlist-modify-private"
